@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VowTag — Wedding Hashtag Generator | Unique Wedding & Shaadi Hashtags</title>
+<meta name="description" content="VowTag is a free wedding hashtag generator. Enter partner names to get 60+ CamelCase wedding hashtags — portmanteaus, rhymes, puns, Bollywood Hinglish tags and per-event hashtags for mehendi, sangeet, haldi, reception and cocktail.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { blush: '#FFF5F3', rosegold: '#B76E79', rosedeep: '#9E5560', cocoa: '#3E2723', gold: '#D4A017', cream: '#FFFDFB' },
+      fontFamily: { display: ['"Playfair Display"', 'Georgia', 'serif'], body: ['Inter', 'system-ui', 'sans-serif'] }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .tag-chip { transition: transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease; }
+  .tag-chip:hover { transform: translateY(-2px); box-shadow: 0 6px 16px -6px rgba(183,110,121,.55); }
+  .tag-chip:active { transform: translateY(0); }
+  .gold-divider { background: linear-gradient(90deg, transparent, #D4A017 20%, #D4A017 80%, transparent); height: 1px; }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary { list-style: none; cursor: pointer; }
+  details.faq-item[open] .faq-chev { transform: rotate(180deg); }
+  .faq-chev { transition: transform .2s ease; }
+  #toast { transition: opacity .25s ease, transform .25s ease; }
+  @media print { .no-print { display: none !important; } }
+  .vibe-pill input:checked + span { background: #B76E79; color: #fff; border-color: #B76E79; box-shadow: 0 4px 12px -4px rgba(183,110,121,.6); }
+  .event-check input:checked + span { background: #D4A017; color: #3E2723; border-color: #D4A017; }
+</style>
+</head>
+<body id="top" class="bg-blush text-cocoa font-body antialiased">
+
+<!-- Sticky header -->
+<header class="no-print sticky top-0 z-40 border-b border-[#F0DCD6] bg-blush/90 backdrop-blur-md">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 no-underline">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="11" cy="18" r="7.5" stroke="#B76E79" stroke-width="2.6"/>
+        <circle cx="21" cy="18" r="7.5" stroke="#D4A017" stroke-width="2.6"/>
+        <path d="M16 4l1.8 3.6L21.5 8l-3.7 1.4L16 13l-1.8-3.6L10.5 8l3.7-.4L16 4z" fill="#B76E79"/>
+      </svg>
+      <span class="font-display text-2xl font-bold tracking-tight text-cocoa">Vow<span class="text-rosegold">Tag</span></span>
+    </a>
+    <nav class="flex items-center gap-5 text-sm font-medium">
+      <a href="#top" class="text-cocoa/80 hover:text-rosegold transition-colors">Home</a>
+      <a href="https://fixoraa.tech" class="rounded-full border border-rosegold/40 px-4 py-1.5 text-rosegold hover:bg-rosegold hover:text-white transition-colors">More Tools</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP AD -->
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="mx-auto max-w-6xl px-4 sm:px-6">
+
+  <!-- Hero -->
+  <section class="text-center pt-8 pb-6 sm:pt-12 sm:pb-8">
+    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-gold mb-3">Wedding Hashtag Generator</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-bold text-cocoa leading-tight">Find the hashtag<br class="sm:hidden"> your love story deserves</h1>
+    <p class="mt-4 max-w-2xl mx-auto text-cocoa/70 text-base sm:text-lg">Type in two names and get up to 60 copy-ready, CamelCase wedding hashtags — clever portmanteaus, rhyming pairs, puns, Bollywood-style Hinglish tags, and separate sets for every function from mehendi to cocktail.</p>
+    <div class="mt-5 inline-flex items-center gap-2 rounded-full bg-white border border-gold/50 px-4 py-1.5 text-sm font-semibold text-cocoa shadow-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2-6.3-4.5-6.3 4.5L8 13.8 2 9.2h7.6L12 2z" fill="#D4A017"/></svg>
+      Unlimited Free Usage
+      <span class="font-normal text-cocoa/60">· no signup · no watermark</span>
+    </div>
+  </section>
+
+  <!-- TOOL -->
+  <section aria-label="Wedding hashtag generator tool" class="rounded-3xl bg-cream border border-[#F0DCD6] shadow-[0_18px_50px_-24px_rgba(183,110,121,0.45)] overflow-hidden">
+    <div class="gold-divider"></div>
+    <div class="p-5 sm:p-8">
+      <!-- Inputs -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div>
+          <label for="name1" class="block text-sm font-semibold text-cocoa mb-1.5">Partner 1 <span class="text-rosegold">*</span></label>
+          <input id="name1" type="text" maxlength="24" placeholder="e.g. Aarav" autocomplete="off"
+            class="w-full rounded-xl border border-[#EAD3CC] bg-white px-4 py-2.5 text-cocoa placeholder:text-cocoa/35 focus:outline-none focus:ring-2 focus:ring-rosegold/60 focus:border-rosegold">
+        </div>
+        <div>
+          <label for="name2" class="block text-sm font-semibold text-cocoa mb-1.5">Partner 2 <span class="text-rosegold">*</span></label>
+          <input id="name2" type="text" maxlength="24" placeholder="e.g. Diya" autocomplete="off"
+            class="w-full rounded-xl border border-[#EAD3CC] bg-white px-4 py-2.5 text-cocoa placeholder:text-cocoa/35 focus:outline-none focus:ring-2 focus:ring-rosegold/60 focus:border-rosegold">
+        </div>
+        <div>
+          <label for="surname" class="block text-sm font-semibold text-cocoa mb-1.5">Family / surname <span class="font-normal text-cocoa/50">(optional)</span></label>
+          <input id="surname" type="text" maxlength="24" placeholder="e.g. Sharma" autocomplete="off"
+            class="w-full rounded-xl border border-[#EAD3CC] bg-white px-4 py-2.5 text-cocoa placeholder:text-cocoa/35 focus:outline-none focus:ring-2 focus:ring-rosegold/60 focus:border-rosegold">
+        </div>
+        <div>
+          <label for="weddate" class="block text-sm font-semibold text-cocoa mb-1.5">Wedding date <span class="font-normal text-cocoa/50">(optional)</span></label>
+          <input id="weddate" type="date"
+            class="w-full rounded-xl border border-[#EAD3CC] bg-white px-4 py-2.5 text-cocoa focus:outline-none focus:ring-2 focus:ring-rosegold/60 focus:border-rosegold">
+        </div>
+        <div>
+          <label for="venue" class="block text-sm font-semibold text-cocoa mb-1.5">Venue / city <span class="font-normal text-cocoa/50">(optional)</span></label>
+          <input id="venue" type="text" maxlength="24" placeholder="e.g. Goa" autocomplete="off"
+            class="w-full rounded-xl border border-[#EAD3CC] bg-white px-4 py-2.5 text-cocoa placeholder:text-cocoa/35 focus:outline-none focus:ring-2 focus:ring-rosegold/60 focus:border-rosegold">
+        </div>
+        <div class="flex items-end">
+          <button id="generateBtn" class="w-full rounded-xl bg-rosegold hover:bg-rosedeep text-white font-semibold px-6 py-3 text-base shadow-[0_10px_24px_-10px_rgba(183,110,121,0.8)] transition-colors">
+            Generate Hashtags
+          </button>
+        </div>
+      </div>
+
+      <!-- Vibe selector -->
+      <div class="mt-6">
+        <p class="text-sm font-semibold text-cocoa mb-2">Pick a vibe</p>
+        <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="Hashtag vibe">
+          <label class="vibe-pill cursor-pointer"><input type="radio" name="vibe" value="romantic" class="sr-only" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">💞 Romantic</span></label>
+          <label class="vibe-pill cursor-pointer"><input type="radio" name="vibe" value="punny" class="sr-only"><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">😄 Punny</span></label>
+          <label class="vibe-pill cursor-pointer"><input type="radio" name="vibe" value="bollywood" class="sr-only"><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">🎬 Bollywood / Hinglish</span></label>
+          <label class="vibe-pill cursor-pointer"><input type="radio" name="vibe" value="traditional" class="sr-only"><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">🪔 Traditional</span></label>
+        </div>
+      </div>
+
+      <!-- Event selector -->
+      <div class="mt-4">
+        <p class="text-sm font-semibold text-cocoa mb-2">Include per-event hashtag sets</p>
+        <div class="flex flex-wrap gap-2" aria-label="Events">
+          <label class="event-check cursor-pointer"><input type="checkbox" class="evt sr-only" value="mehendi" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">🌿 Mehendi</span></label>
+          <label class="event-check cursor-pointer"><input type="checkbox" class="evt sr-only" value="sangeet" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">💃 Sangeet</span></label>
+          <label class="event-check cursor-pointer"><input type="checkbox" class="evt sr-only" value="haldi" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">✨ Haldi</span></label>
+          <label class="event-check cursor-pointer"><input type="checkbox" class="evt sr-only" value="reception" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">🥂 Reception</span></label>
+          <label class="event-check cursor-pointer"><input type="checkbox" class="evt sr-only" value="cocktail" checked><span class="inline-block rounded-full border border-[#EAD3CC] bg-white px-4 py-2 text-sm font-medium text-cocoa/80 transition-all">🍸 Cocktail</span></label>
+        </div>
+      </div>
+
+      <p id="formError" class="hidden mt-4 rounded-xl bg-red-50 border border-red-200 px-4 py-2.5 text-sm text-red-700" role="alert"></p>
+
+      <!-- Favorites -->
+      <div id="favBar" class="hidden mt-6 rounded-2xl border border-gold/40 bg-[#FFFBEF] p-4">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-cocoa">⭐ My shortlist <span id="favCount" class="text-cocoa/50 font-normal"></span></p>
+          <button id="copyFavsBtn" class="text-xs font-semibold text-rosegold hover:text-rosedeep underline underline-offset-2">Copy shortlist</button>
+        </div>
+        <div id="favChips" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Results -->
+      <div id="resultsWrap" class="mt-6 hidden">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h2 class="font-display text-2xl font-semibold text-cocoa"><span id="tagCount">0</span> hashtags, made for you two</h2>
+          <button id="copyAllBtn" class="rounded-xl border-2 border-rosegold text-rosegold hover:bg-rosegold hover:text-white font-semibold px-5 py-2 text-sm transition-colors">📋 Copy all</button>
+        </div>
+        <div id="groups" class="space-y-6"></div>
+        <p class="mt-6 text-xs text-cocoa/55 leading-relaxed">💡 Tip: tap any hashtag to copy it. Tags marked <span class="inline-block rounded-full bg-amber-100 border border-amber-300 px-2 py-0.5 text-[11px] font-semibold text-amber-800">Long</span> are over 24 characters — fine for a main hashtag, but consider the shorter alternative for invites. Hover a tag to see how it reads out loud.</p>
+      </div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="mt-6 rounded-2xl border-2 border-dashed border-[#EAD3CC] bg-white/60 p-8 text-center">
+        <p class="font-display text-xl text-cocoa/70">Your hashtags will bloom here 🌸</p>
+        <p class="mt-1 text-sm text-cocoa/55">Enter both partners' names above and press <span class="font-semibold">Generate Hashtags</span>.</p>
+      </div>
+    </div>
+    <div class="gold-divider"></div>
+  </section>
+
+  <!-- toast -->
+  <div id="toast" class="no-print fixed left-1/2 bottom-6 z-50 -translate-x-1/2 translate-y-4 opacity-0 pointer-events-none rounded-full bg-cocoa text-white text-sm font-medium px-5 py-2.5 shadow-xl" role="status"></div>
+
+</main>
+
+<!-- ================= PURE GENERATION LOGIC (no DOM access) ================= -->
+<script>
+/*__PURE_START__*/
+var FILLER_WORDS = ['Wedding', 'Shaadi', 'The', 'And', 'With', 'For', 'Of', 'A', 'To', 'In', 'E', 'On'];
+var EVENT_KEYS = ['mehendi', 'sangeet', 'haldi', 'reception', 'cocktail'];
+var HINGLISH_WORDS = ['Shaadi', 'Dulha', 'Dulhan', 'Pyaar', 'Dhamaka', 'Balle', 'Naach', 'Masala', 'Baaja', 'Mehndi', 'Singhle', 'Dhamakedaar', 'Subah', 'Dawat', 'Mubarak', 'Vivah', 'Phere', 'Kalyanam', 'Karaj', 'Rachne'];
+
+function cleanName(s) { return String(s == null ? '' : s).replace(/[^A-Za-z]/g, ''); }
+function cap(s) { s = String(s || ''); return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : ''; }
+
+function toCamelTag(parts) {
+  var words = (Array.isArray(parts) ? parts : [parts]).map(function (p) {
+    return String(p == null ? '' : p).replace(/[^A-Za-z0-9]/g, '');
+  }).filter(function (w) { return w.length > 0; });
+  if (!words.length) return '';
+  var body = words.map(function (w) { return /^[0-9]/.test(w) ? w : cap(w); }).join('');
+  return body ? '#' + body : '';
+}
+
+function validTag(t) { return typeof t === 'string' && /^#[A-Za-z0-9]+$/.test(t) && t.length >= 3; }
+
+function uniqueTags(tags) {
+  var seen = {}; var out = [];
+  tags.forEach(function (t) { var k = t.toLowerCase(); if (!seen[k]) { seen[k] = 1; out.push(t); } });
+  return out;
+}
+
+function bodiesToTags(bodies) {
+  return uniqueTags(bodies.map(function (b) { return toCamelTag(b); }).filter(validTag));
+}
+
+function portmanteauBodies(n1, n2) {
+  var out = []; var i;
+  var A = n1.toLowerCase(), B = n2.toLowerCase();
+  var limA = Math.min(A.length - 1, 6);
+  for (i = 2; i <= limA; i++) {
+    out.push([cap(A.slice(0, i) + B.slice(i))]);
+    out.push([cap(A.slice(0, i) + B.slice(Math.max(0, B.length - i)))]);
+  }
+  var limB = Math.min(B.length - 1, 6);
+  for (i = 2; i <= limB; i++) {
+    out.push([cap(B.slice(0, i) + A.slice(i))]);
+    out.push([cap(B.slice(0, i) + A.slice(Math.max(0, A.length - i)))]);
+  }
+  out.push([n1, n2]); out.push([n2, n1]);
+  return out;
+}
+
+function rhymeBodies(n1, n2) {
+  return [
+    ['Say', 'I', 'Do', 'To', n2], ['Say', 'I', 'Do', 'Too', n1],
+    ['He', 'Put', 'A', 'Ring', 'On', n2], ['Now', 'She', 'Wears', 'The', 'Bling'],
+    ['Two', 'Become', 'One', n1, n2], ['The', 'Fun', 'Has', 'Just', 'Begun'],
+    ['Here', 'Comes', 'The', 'Bride', n2], ['Handsome', 'By', 'Her', 'Side', n1],
+    ['Seal', 'It', 'With', 'A', 'Kiss', n1], ['Forever', 'Wrapped', 'In', 'Bliss', n2],
+    ['We', 'Tied', 'The', 'Knot', n1], ['Give', 'It', 'All', 'Weve', 'Got', n2]
+  ];
+}
+
+function punBodies(n1, n2, s) {
+  var b = [
+    ['Hitched', 'With', n1], ['Hitched', 'With', n2],
+    ['From', 'Miss', 'To', 'Mrs', n2],
+    ['No', 'More', 'Single', n1],
+    ['Just', 'Got', 'Hitched', n1, n2],
+    ['Booked', 'For', 'Life', n1],
+    ['Tie', 'The', 'Knot', n1],
+    ['Officially', n1],
+    ['Better', 'Half', n2],
+    ['Partner', 'In', 'Crime', n1]
+  ];
+  if (s) { b.push([s, 'To', 'Be']); b.push(['Finally', 'A', s]); b.push(['Mr', 'And', 'Mrs', s]); }
+  return b;
+}
+
+function punnyExtraBodies(n1, n2) {
+  return [
+    ['Swipe', 'Right', n1], ['Game', 'Over', n1],
+    ['Love', 'At', 'First', 'Swipe', n2], ['Dodged', 'The', 'Single', 'Life', n1]
+  ];
+}
+
+function romanticBodies(n1, n2) {
+  return [
+    ['Forever', n1, n2], ['Two', 'Souls', 'One', 'Love'],
+    ['Eternal', 'Love', n1, n2], ['Soulmates', n1, n2],
+    ['Happily', 'Ever', 'After', n1], ['Love', 'Story', n1, n2],
+    ['Written', 'In', 'The', 'Stars', n1], ['One', 'Love', 'One', 'Life', n2]
+  ];
+}
+
+function traditionalBodies(n1, n2) {
+  return [
+    ['Shubh', 'Vivah', n1, n2], ['Saat', 'Phere', n1, n2],
+    ['Blessed', 'Union', n1], ['The', 'Sacred', 'Knot', n1, n2],
+    ['Vivah', 'Utsav', n2], ['Anand', 'Karaj', n1, n2],
+    ['Kalyanam', n1, n2], ['Nikah', 'Mubarak', n1],
+    ['Shubh', 'Aarambh', n1, n2], ['Mangalyam', n2]
+  ];
+}
+
+function bollywoodBodies(n1, n2, s) {
+  var fam = s || n2;
+  return [
+    ['Dilwale', n1, 'Le', 'Jayenge'],
+    ['Kabhi', 'Khushi', 'Kabhi', fam],
+    ['Shaadi', 'Ke', 'Side', 'Effects'],
+    ['Pyaar', 'Dosti', 'Hai', n1, n2],
+    ['Mere', 'Yaar', n1, 'Ki', 'Shaadi'],
+    ['Band', 'Baaja', n1, n2],
+    ['Hum', 'Saath', 'Saath', 'Hain', n1],
+    ['Masala', 'Shaadi', n1, n2],
+    ['Dulhan', n2, 'Le', 'Gaya', n1],
+    ['Naach', 'Gaana', 'Dhamaka', n1],
+    ['Dhamakedaar', 'Shaadi', n1],
+    ['Balle', 'Balle', n1, n2],
+    ['No', 'More', 'Single', n1],
+    ['No', 'More', 'Single', n2],
+    ['Luv', 'Shuv', 'Tey', 'Shaadi', n2],
+    ['Dulha', n1, 'Dulhan', n2]
+  ];
+}
+
+function eventBodies(ev, n1, n2, s) {
+  var n = n1 || n2;
+  var banks = {
+    mehendi: [['Mehendi', n], ['Mehendi', 'Nights', n], ['Mehndi', 'Laga', 'Ke', n], ['Henna', 'Happiness', n], ['Rang', 'Lag', 'Gaya', n], ['Mehendi', 'Wali', 'Evening', n]],
+    sangeet: [['Sangeet', n], ['Nach', 'Baliye', n], ['Sangeet', 'Sandhya', n], ['DJ', 'Wale', 'Babu', n], ['Nach', 'Gaana', n], ['Sangeet', 'Night', n]],
+    haldi: [['Haldi', n], ['Haldi', 'Glow', 'Up', n], ['Turmeric', 'Glow', n], ['Haldi', 'Morning', n], ['Peela', 'Peela', n], ['Haldi', 'Wali', 'Subah', n]],
+    reception: [['Reception', n], ['Grand', 'Reception', n], ['Dawat', n], ['Reception', 'Royale', n], ['Big', 'Fat', 'Reception', n], ['Dawat', 'E', s || n]],
+    cocktail: [['Cheers', 'To', n1, n2], ['Cocktail', 'Hour', n], ['Sip', 'Sip', 'Hooray', n], ['Shots', 'Of', 'Love', n], ['Clink', 'Clink', n], ['Cocktails', 'With', n1]]
+  };
+  return banks[ev] || [];
+}
+
+function eventLabel(ev) {
+  return { mehendi: 'Mehendi', sangeet: 'Sangeet', haldi: 'Haldi', reception: 'Reception', cocktail: 'Cocktail' }[ev] || ev;
+}
+
+function vibeBodies(vibe, n1, n2, s) {
+  if (vibe === 'bollywood') return bollywoodBodies(n1, n2, s);
+  if (vibe === 'traditional') return traditionalBodies(n1, n2);
+  if (vibe === 'punny') return punBodies(n1, n2, s).concat(punnyExtraBodies(n1, n2));
+  return romanticBodies(n1, n2);
+}
+
+function vibeLabel(vibe) {
+  return { romantic: 'Romantic', punny: 'Punny Twists', bollywood: 'Bollywood / Hinglish', traditional: 'Traditional' }[vibe] || 'Romantic';
+}
+
+function dateVenueBodies(n1, n2, s, year, venue) {
+  var b = [];
+  if (year) { b.push([n1, n2, year]); b.push([n1, 'Weds', n2, year]); if (s) b.push([s, year]); }
+  if (venue) { b.push([n1, n2, 'In', venue]); b.push([n1, 'Weds', n2, 'In', venue]); }
+  return b;
+}
+
+function generateTags(opts) {
+  opts = opts || {};
+  var n1 = cap(cleanName(opts.name1));
+  var n2 = cap(cleanName(opts.name2));
+  var s = cap(cleanName(opts.surname));
+  var vibe = opts.vibe;
+  if (['romantic', 'punny', 'bollywood', 'traditional'].indexOf(vibe) < 0) vibe = 'romantic';
+  var year = ''; var ym = String(opts.date || '').match(/(\d{4})/); if (ym) year = ym[1];
+  var venue = ''; var first = String(opts.venue || '').trim().split(/[\s,\-–—]+/)[0] || '';
+  if (first) venue = cap(cleanName(first));
+  var events = [];
+  if (Array.isArray(opts.events)) {
+    opts.events.forEach(function (e) { if (EVENT_KEYS.indexOf(e) >= 0 && events.indexOf(e) < 0) events.push(e); });
+  }
+  var items = []; var seen = {};
+  function collect(style, label, bodies) {
+    bodiesToTags(bodies).forEach(function (t) {
+      var k = t.toLowerCase();
+      if (!seen[k]) { seen[k] = 1; items.push({ tag: t, style: style, event: label }); }
+    });
+  }
+  if (n1 || n2) {
+    if (n1 && n2) collect('blends', 'Name Blends', portmanteauBodies(n1, n2));
+    collect('rhymes', 'Rhyme Pairs', rhymeBodies(n1, n2));
+    collect('puns', 'Punny Twists', punBodies(n1, n2, s));
+    collect('vibe', vibeLabel(vibe), vibeBodies(vibe, n1, n2, s));
+    collect('datevenue', 'Date & Venue', dateVenueBodies(n1, n2, s, year, venue));
+    events.forEach(function (ev) { collect('event', eventLabel(ev), eventBodies(ev, n1, n2, s)); });
+  }
+  items = items.slice(0, 60);
+  var groups = [];
+  items.forEach(function (it) {
+    var g = null;
+    for (var i = 0; i < groups.length; i++) {
+      if (groups[i].style === it.style && groups[i].label === it.event) { g = groups[i]; break; }
+    }
+    if (!g) { g = { style: it.style, label: it.event, tags: [] }; groups.push(g); }
+    g.tags.push(it.tag);
+  });
+  return { groups: groups, all: items.map(function (it) { return it.tag; }) };
+}
+
+function splitCamel(body) {
+  return String(body).replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' ').filter(Boolean);
+}
+function spacedPreview(tag) { return splitCamel(String(tag).replace(/^#/, '')).join(' '); }
+
+function shortenTag(tag) {
+  var words = splitCamel(String(tag).replace(/^#/, ''));
+  var kept = words.filter(function (w) { return FILLER_WORDS.indexOf(w) < 0; });
+  if (!kept.length) kept = words.slice();
+  var t = toCamelTag(kept);
+  if (t.slice(1).length > 24 && kept.length > 2) t = toCamelTag([kept[0], kept[kept.length - 1]]);
+  if (t.slice(1).length > 24) t = toCamelTag(kept.map(function (w) { return w.slice(0, 4); }));
+  return t;
+}
+
+function tagHints(tag) {
+  var hints = []; var body = String(tag).replace(/^#/, '');
+  if (body.length > 24 && validTag(tag)) {
+    var shorter = shortenTag(tag);
+    if (shorter && shorter !== tag) {
+      hints.push({ type: 'long', note: 'Over 24 characters — long for Instagram captions and printed invites.', shorter: shorter });
+    }
+  }
+  if (/[B-DF-HJ-NP-TV-XZb-df-hj-np-tv-xz]{5,}/.test(body)) {
+    hints.push({ type: 'spell', note: 'Tricky consonant cluster — guests may misspell it when typing.' });
+  }
+  if (/(.)\1\1/.test(body)) {
+    hints.push({ type: 'spell', note: 'Repeated letter — easy to mistype.' });
+  }
+  return hints;
+}
+
+function containsHinglish(tag) {
+  var low = String(tag).toLowerCase();
+  for (var i = 0; i < HINGLISH_WORDS.length; i++) {
+    if (low.indexOf(HINGLISH_WORDS[i].toLowerCase()) >= 0) return true;
+  }
+  return false;
+}
+/*__PURE_END__*/
+</script>
+
+<!-- ================= UI LOGIC ================= -->
+<script>
+(function () {
+  'use strict';
+  var FAV_KEY = 'vowtag-favs-v1';
+  var $ = function (id) { return document.getElementById(id); };
+
+  function getFavs() {
+    try { var v = JSON.parse(localStorage.getItem(FAV_KEY) || '[]'); return Array.isArray(v) ? v : []; }
+    catch (e) { return []; }
+  }
+  function setFavs(list) { try { localStorage.setItem(FAV_KEY, JSON.stringify(list)); } catch (e) {} }
+
+  var toastTimer = null;
+  function toast(msg) {
+    var el = $('toast'); el.textContent = msg;
+    el.style.opacity = '1'; el.style.transform = 'translate(-50%, 0)';
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.style.opacity = '0'; el.style.transform = 'translate(-50%, 1rem)'; }, 1600);
+  }
+
+  function copyText(t) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { toast('Copied!'); }, function () { fallback(); toast('Copied!'); });
+    } else { fallback(); toast('Copied!'); }
+  }
+
+  function chipHTML(tag) {
+    var hints = tagHints(tag);
+    var longH = hints.filter(function (h) { return h.type === 'long'; })[0];
+    var spellH = hints.filter(function (h) { return h.type === 'spell'; })[0];
+    var favs = getFavs();
+    var starred = favs.indexOf(tag) >= 0;
+    var title = 'Tap to copy · reads as: ' + spacedPreview(tag);
+    if (spellH) title += ' · ⚠ ' + spellH.note;
+    if (longH) title += ' · ⚠ ' + longH.note + ' Try ' + longH.shorter + ' instead.';
+    var badge = longH
+      ? '<span class="ml-1.5 inline-block rounded-full bg-amber-100 border border-amber-300 px-1.5 py-px text-[10px] font-bold text-amber-800 align-middle" title="' + longH.note + ' Shorter idea: ' + longH.shorter + '">Long</span>'
+      : '';
+    return '<span class="tag-chip inline-flex items-center rounded-full border border-rosegold/50 bg-white pl-4 pr-1.5 py-1.5 text-sm font-semibold text-cocoa hover:bg-rosegold hover:text-white hover:border-rosegold cursor-pointer" data-tag="' + tag + '" title="' + title.replace(/"/g, '&quot;') + '">' +
+      '<span class="chip-label">' + tag + '</span>' + badge +
+      '<button class="star-btn ml-1 rounded-full w-7 h-7 inline-flex items-center justify-center text-gold hover:bg-black/5" data-star="' + tag + '" title="' + (starred ? 'Remove from shortlist' : 'Add to shortlist') + '" aria-label="Star hashtag">' + (starred ? '★' : '☆') + '</button>' +
+      '</span>';
+  }
+
+  function renderFavBar() {
+    var favs = getFavs();
+    var bar = $('favBar');
+    if (!favs.length) { bar.classList.add('hidden'); return; }
+    bar.classList.remove('hidden');
+    $('favCount').textContent = '(' + favs.length + ')';
+    $('favChips').innerHTML = favs.map(chipHTML).join('');
+  }
+
+  function renderGroups(res) {
+    var wrap = $('groups');
+    var html = '';
+    res.groups.forEach(function (g) {
+      html += '<div class="rounded-2xl border border-[#F0DCD6] bg-white p-4 sm:p-5">' +
+        '<div class="flex items-center justify-between mb-3">' +
+        '<h3 class="font-display text-lg font-semibold text-cocoa">' + g.label + ' <span class="text-sm font-body font-normal text-cocoa/50">(' + g.tags.length + ')</span></h3>' +
+        '<button class="copy-group text-xs font-semibold text-rosegold hover:text-rosedeep underline underline-offset-2" data-group="' + g.label.replace(/"/g, '&quot;') + '">Copy set</button>' +
+        '</div>' +
+        '<div class="flex flex-wrap gap-2">' + g.tags.map(chipHTML).join('') + '</div>' +
+        '</div>';
+    });
+    // Short & sweet alternatives for long tags
+    var seenShort = {}; var shorts = [];
+    res.all.forEach(function (t) {
+      tagHints(t).forEach(function (h) {
+        if (h.type === 'long' && h.shorter) {
+          var k = h.shorter.toLowerCase();
+          if (!seenShort[k] && res.all.map(function (x) { return x.toLowerCase(); }).indexOf(k) < 0) {
+            seenShort[k] = 1; shorts.push({ from: t, to: h.shorter });
+          }
+        }
+      });
+    });
+    shorts = shorts.slice(0, 12);
+    if (shorts.length) {
+      html += '<div class="rounded-2xl border border-gold/50 bg-[#FFFBEF] p-4 sm:p-5">' +
+        '<h3 class="font-display text-lg font-semibold text-cocoa mb-1">Short &amp; sweet alternatives</h3>' +
+        '<p class="text-xs text-cocoa/60 mb-3">Snappier versions of the longer tags above — easier to type, say and print.</p>' +
+        '<div class="flex flex-wrap gap-2">' + shorts.map(function (s) {
+          return '<span class="tag-chip inline-flex items-center rounded-full border border-gold/60 bg-white pl-4 pr-4 py-1.5 text-sm font-semibold text-cocoa hover:bg-gold hover:text-cocoa cursor-pointer" data-tag="' + s.to + '" title="Tap to copy · shorter take on ' + s.from + '">' + s.to + '</span>';
+        }).join('') + '</div></div>';
+    }
+    wrap.innerHTML = html;
+  }
+
+  function currentOptions() {
+    var vibe = 'romantic';
+    var vr = document.querySelector('input[name="vibe"]:checked');
+    if (vr) vibe = vr.value;
+    var events = [];
+    document.querySelectorAll('.evt:checked').forEach(function (c) { events.push(c.value); });
+    return {
+      name1: $('name1').value, name2: $('name2').value, surname: $('surname').value,
+      date: $('weddate').value, venue: $('venue').value, vibe: vibe, events: events
+    };
+  }
+
+  function generate() {
+    var err = $('formError');
+    var n1 = cleanName($('name1').value), n2 = cleanName($('name2').value);
+    if (!n1 && !n2) {
+      err.textContent = 'Please enter at least one partner\u2019s name to generate hashtags.';
+      err.classList.remove('hidden');
+      $('resultsWrap').classList.add('hidden');
+      $('emptyState').classList.remove('hidden');
+      return;
+    }
+    err.classList.add('hidden');
+    var res = generateTags(currentOptions());
+    if (!res.all.length) {
+      err.textContent = 'Those names did not produce any hashtags — try different spellings.';
+      err.classList.remove('hidden');
+      return;
+    }
+    $('emptyState').classList.add('hidden');
+    $('resultsWrap').classList.remove('hidden');
+    $('tagCount').textContent = res.all.length;
+    renderGroups(res);
+    renderFavBar();
+    window._vowtagLast = res;
+    $('resultsWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var star = e.target.closest('[data-star]');
+    if (star) {
+      e.stopPropagation();
+      var tag = star.getAttribute('data-star');
+      var favs = getFavs();
+      var i = favs.indexOf(tag);
+      if (i >= 0) { favs.splice(i, 1); toast('Removed from shortlist'); }
+      else { favs.push(tag); toast('Added to shortlist ⭐'); }
+      setFavs(favs);
+      renderFavBar();
+      if (window._vowtagLast) renderGroups(window._vowtagLast);
+      return;
+    }
+    var cg = e.target.closest('.copy-group');
+    if (cg) {
+      var label = cg.getAttribute('data-group');
+      var res = window._vowtagLast;
+      if (res) {
+        var g = res.groups.filter(function (x) { return x.label === label; })[0];
+        if (g) { copyText(g.tags.join('\n')); }
+      }
+      return;
+    }
+    var chip = e.target.closest('[data-tag]');
+    if (chip && !chip.classList.contains('star-btn')) {
+      copyText(chip.getAttribute('data-tag'));
+    }
+  });
+
+  $('generateBtn').addEventListener('click', generate);
+  [$('name1'), $('name2'), $('surname'), $('venue')].forEach(function (el) {
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter') generate(); });
+  });
+  $('copyAllBtn').addEventListener('click', function () {
+    var res = window._vowtagLast;
+    if (res && res.all.length) copyText(res.all.join('\n'));
+  });
+  $('copyFavsBtn').addEventListener('click', function () {
+    var favs = getFavs();
+    if (favs.length) copyText(favs.join('\n'));
+  });
+
+  renderFavBar();
+})();
+</script>
+
+<!-- BOTTOM AD -->
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+
+<div class="mx-auto max-w-6xl px-4 sm:px-6 pb-16">
+  <!-- SEO ARTICLE -->
+  <article id="seo-article" class="mt-10 rounded-3xl bg-cream border border-[#F0DCD6] p-6 sm:p-10">
+    <p class="text-xs font-semibold tracking-[0.22em] uppercase text-gold mb-3">The complete guide</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-cocoa mb-6">Wedding Hashtags: How to Create One Your Guests Will Actually Use</h2>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">What is a wedding hashtag, really?</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">A wedding hashtag is a single, unique phrase — always written as one unbroken string starting with the hash symbol — that a couple chooses to collect every photo, video and story from their wedding in one searchable place. When your guests post their pictures from the baraat, the pheras or the dance floor and add your hashtag, all of those memories gather under one tap on Instagram, Facebook or X. Long after the last song ends, you can open that tag and relive the celebration through hundreds of different eyes: the candid your cousin caught during the varmala, your college friends attempting bhangra at the sangeet, your grandmother blessing you at the haldi. Without a shared hashtag, those moments scatter across private accounts and group chats and quietly disappear. With one, your wedding gets a living, crowd-sourced album that grows for years. Couples today treat the hashtag as part of the stationery suite — it sits on the invitation, the welcome sign, the photo booth frame and sometimes even the wedding cake — because it is the thread that stitches everyone's phone cameras into a single story.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">Why bother? The real payoff</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">The most obvious reward is convenience: instead of chasing relatives for their pictures weeks later, you simply search your tag and download the flood of posts. But the deeper payoff is emotional. Guests love feeling like insiders, and a clever hashtag gives them a small creative role in your day — they are not just attending, they are contributing to the official record. Photographers increasingly ask for the couple's hashtag before the event so they can tag sneak peeks and drive traffic to the same collection. For destination weddings, where many loved ones cannot travel, the hashtag becomes a window: grandparents watching from home can follow the celebrations almost live. And there is a practical marketing angle too — if you run a wedding business, styled shoots and vendor collaborations tagged consistently build a portfolio that future clients can browse in seconds. In short, a good hashtag multiplies the joy of the day by making it findable, shareable and permanent.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">The building blocks: names, rhymes and puns</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">Almost every great wedding hashtag starts with the couple's names, because names are what make it unmistakably yours. The classic technique is the portmanteau — blending the two names into one new word. Take the first half of one name and the second half of the other: Priya and Rohan become Prihan, Anaya and Kabir become Anakab. Try several split points, because the magic often hides at an unexpected joint; sometimes the blend sounds like a real word, which is gold. The second technique is the rhyming pair: two short tags that rhyme with each other, like SayIDoToDiya and SayIDoTooAarav, or HePutARingOnDiya and NowSheWearsTheBling. Rhymes are sticky — guests remember them without being told twice. The third technique is the pun, and here surnames earn their keep. A surname like Sharma unlocks SharmaToBe, FinallyASharma and MrAndMrsSharma. First names unlock HitchedWithAarav, FromMissToMrsDiya and BookedForLife. The best puns need no explanation; if you have to explain the joke, the hashtag is too clever for its own good. A useful test is the phone test: call a friend, say the hashtag once, and ask them to type it. If they get it right, it passes.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">Going desi: Bollywood and Hinglish wordplay</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">Indian weddings have a secret weapon that Western couples envy: Bollywood. Generations of film dialogues and song lyrics live in everyone's memory, which makes them perfect raw material for hashtags. The formula is simple — take an iconic phrase and swap in your names. Dilwale Dulhania Le Jayenge becomes DilwaleAaravLeJayenge; Kabhi Khushi Kabhie Gham becomes KabhiKhushiKabhiSharma. Hinglish wordplay goes further, mixing Hindi and English the way families actually speak: ShaadiKeSideEffects, PyaarDostiHaiAaravDiya, MereYaarAaravKiShaadi, NoMoreSingleDiya. Words like shaadi, dulha, dulhan, pyaar, dhamaka and naach instantly signal celebration to every Indian guest while staying readable for international friends. Traditional vocabulary works beautifully too — ShubhVivah, SaatPhere, AnandKaraj, Kalyanam and NikahMubarak honor the ceremony itself and resonate across Hindu, Sikh, Tamil and Muslim weddings alike. The trick is balance: pick references your grandparents will recognize, keep the spelling intuitive, and avoid titles so obscure that only film buffs get them.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">One hashtag or five? Planning per-event tags</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">Modern Indian weddings are not one event but a festival — mehendi, sangeet, haldi, reception, cocktail, sometimes a carnival or a bachelorette — and many couples now give each function its own hashtag. The strategy has real advantages. A single master hashtag for the wedding keeps the main album unified, while per-event tags let guests find exactly what they want: the bride's cousins can binge every mehendi close-up under AaravKiMehendi, and the college gang can relive the sangeet dance-off under NachBaliyeDiya. Event tags also solve a practical problem — photographers deliver galleries function by function, and matching tags make handoffs effortless. When inventing them, lean on each ritual's personality. Mehendi loves color and song lyrics: MehndiLagaKeDiya, HennaHappiness. Sangeet wants rhythm: SangeetSandhya, DJWaleBabu. Haldi is all about glow and yellow: HaldiGlowUp, HaldiWaliSubah. Reception goes grand: GrandReception, DawatESharma. Cocktail goes playful: CheersToAaravDiya, SipSipHooray. Announce the full set on a single elegant sign at the venue entrance — a "hashtag menu" — so guests learn them in one glance instead of discovering them mid-party.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">The 24-character rule and other spelling wisdom</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">Length is the most underrated hashtag skill. Every extra character is another chance for a guest to mistype, especially after two glasses of champagne or on a phone with autocorrect fighting them. As a rule of thumb, keep your main hashtag under about 24 characters: short enough to say out loud, type from memory and fit comfortably on an invitation card. If your dream tag runs longer — MereYaarAaravKiShaadiInJaipur, for instance — create a snappier sibling for everyday use and reserve the long one for the wedding-day album. Spelling matters just as much. CamelCase — capitalizing each word, like ShaadiKeSideEffects instead of shaadikesideeffects — is non-negotiable: it turns an unreadable blob into an instantly legible phrase and helps screen readers pronounce it correctly for visually impaired guests. Watch out for consonant clusters and doubled letters that people routinely fumble, avoid digits jammed between letters unless they are a meaningful year, and never include spaces, underscores or special characters — hashtags only recognize letters and numbers. Finally, search every finalist on Instagram before you commit; a tag that looks unique in your head may already belong to another couple's wedding.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">Making it uniquely yours</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">Uniqueness is what turns a hashtag from decoration into a tool. Adding your wedding year — AaravDiya2026, Sharma2026 — is the simplest differentiator and doubles as a sweet timestamp. Your venue or city works the same way: a Goa wedding tagged AaravDiyaInGoa will never collide with another couple's tag. Shared details from your story make the strongest tags of all: the city where you met, your professions, a beloved pet, an inside joke. A doctor-lawyer couple might play with LoveKiPrescription; two trekkers could claim PeaksAndPromises. When brainstorming, generate far more options than you need — thirty to sixty — then shortlist ruthlessly. Read each finalist aloud, type it with your eyes closed, imagine it printed on a welcome sign in gold foil. The survivors are your contenders. Many couples then run a tiny poll among siblings or the wedding party; the tag that makes everyone grin without explanation is usually the winner. Keep one or two backups, because your first choice may already be taken on Instagram.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">Sharing your hashtag so guests actually use it</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">A brilliant hashtag that nobody knows about is a tree falling in an empty forest. Start early: print it on the save-the-date or wedding website so out-of-town guests learn it before they pack. At the venue, repetition is everything — welcome signage at the entrance, table cards at dinner, a line on the program, a frame around the photo booth, even a custom neon sign that doubles as a selfie backdrop. Ask your emcee or DJ to announce it once during the sangeet; a single cheerful reminder dramatically lifts usage. Digital nudges help too: add the tag to your Instagram bio for the wedding week, create a highlight cover for stories, and ask your photographer to include it when they post sneak peeks. For per-event tags, station one small sign at each function's entrance rather than overwhelming guests with the full list at once. And lead by example — when the couple, the families and the wedding party all use the tag from the first event, guests follow naturally. After the wedding, keep using it on anniversary posts; the tag becomes a growing time capsule.</p>
+
+    <h3 class="font-display text-2xl font-semibold text-cocoa mt-8 mb-3">Mistakes that kill a good hashtag</h3>
+    <p class="text-cocoa/80 leading-relaxed mb-4">The most common failure is length without mercy — a forty-character masterpiece that nobody can reproduce from memory. Next comes the inside joke that only three people understand; your hashtag is a public address, not a group chat. Avoid anything that reads awkwardly when the words run together — always check the unspaced, lowercase version for accidental unfortunate words before you commit. Do not build your tag around a trend or meme that will feel dated by next year; your wedding photos are forever. Resist special characters and stylized spellings that look cute in a username but break hashtag rules — the tag must be plain letters and numbers. Never skip the Instagram search test, because discovering mid-wedding that your tag already hosts someone else's beach holiday is heartbreaking. And finally, do not keep changing it: pick your tag at least a month before the wedding, print it everywhere identically, and let consistency do the work. One tag, everywhere, from save-the-date to anniversary — that is how a hashtag becomes a legacy.</p>
+
+    <p class="text-cocoa/80 leading-relaxed mt-8 rounded-2xl bg-white border border-[#F0DCD6] p-5">Ready to find yours? Scroll back up, enter your names, pick a vibe — romantic, punny, Bollywood or traditional — and let VowTag generate up to sixty CamelCase hashtags in seconds. Star your favorites to build a shortlist, copy them with one tap, and check the length hints to keep every tag guest-friendly. Your story deserves a hashtag as memorable as the day itself.</p>
+  </article>
+
+  <!-- FAQ -->
+  <section id="faq" class="mt-10 rounded-3xl bg-cream border border-[#F0DCD6] p-6 sm:p-10" aria-label="Frequently asked questions">
+    <h2 class="font-display text-3xl font-bold text-cocoa mb-6">Frequently asked questions</h2>
+    <div class="space-y-3">
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">What is a wedding hashtag and why do couples use one?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">A wedding hashtag is a unique phrase starting with # that couples share with guests so every photo and video from the celebrations can be found in one place on social media. It creates a crowd-sourced wedding album, saves you from chasing people for pictures later, and lets friends and family who could not attend follow the festivities online.</p>
+      </details>
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">How long should a wedding hashtag be?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">Aim for under 24 characters. Shorter tags are easier to remember, say out loud, type correctly and fit on invitations and signage. If your favorite idea runs long, keep it as a secondary tag and create a snappier version — for example, shortening MereYaarAaravKiShaadi to AaravKiShaadi — for everyday use.</p>
+      </details>
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">Should we use one hashtag or different ones for each event?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">Use one master hashtag for the whole wedding plus smaller per-event tags for functions like mehendi, sangeet, haldi, reception and cocktail. The master tag keeps your main album unified, while event tags help guests find specific moments — for example, all sangeet dance videos under one tag. Display the full set on a single sign at the venue entrance.</p>
+      </details>
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">How can I check if my wedding hashtag is already taken?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">Search the exact hashtag on Instagram and other platforms before printing anything. If posts already exist under it, make yours unique by adding your wedding year, venue or city, or a distinctive word from your story. A quick search takes a minute and saves you from sharing an album with strangers.</p>
+      </details>
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">What are some good Indian or Bollywood-style wedding hashtag ideas?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">Swap your names into iconic film phrases — DilwaleAaravLeJayenge, KabhiKhushiKabhiSharma — or use Hinglish wordplay like ShaadiKeSideEffects, PyaarDostiHai and MereYaarAaravKiShaadi. Traditional words such as ShubhVivah, SaatPhere, AnandKaraj and Kalyanam also make beautiful, meaningful tags that honor the ceremony across cultures.</p>
+      </details>
+      <details class="faq-item rounded-2xl border border-[#F0DCD6] bg-white px-5 py-4">
+        <summary class="flex items-center justify-between gap-4 font-semibold text-cocoa">When and how should we share our hashtag with guests?<span class="faq-chev text-rosegold">▾</span></summary>
+        <p class="mt-3 text-sm text-cocoa/75 leading-relaxed">Share it early on your invitation or wedding website, then repeat it at the venue — welcome signs, table cards, the photo booth and a quick announcement by your emcee or DJ. Add it to your social media bio for the wedding week and ask your photographer to use it on sneak peeks. Repetition is what turns a hashtag into a habit.</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a wedding hashtag and why do couples use one?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A wedding hashtag is a unique phrase starting with # that couples share with guests so every photo and video from the celebrations can be found in one place on social media. It creates a crowd-sourced wedding album and lets absent friends and family follow the festivities online." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a wedding hashtag be?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Aim for under 24 characters. Shorter tags are easier to remember, say out loud, type correctly and fit on invitations and signage. If your favorite idea runs long, create a snappier version for everyday use." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we use one hashtag or different ones for each event?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use one master hashtag for the whole wedding plus smaller per-event tags for functions like mehendi, sangeet, haldi, reception and cocktail. The master tag keeps your main album unified while event tags help guests find specific moments." }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I check if my wedding hashtag is already taken?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Search the exact hashtag on Instagram and other platforms before printing anything. If posts already exist under it, make yours unique by adding your wedding year, venue or city, or a distinctive word from your story." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are some good Indian or Bollywood-style wedding hashtag ideas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Swap your names into iconic film phrases like DilwaleAaravLeJayenge or KabhiKhushiKabhiSharma, or use Hinglish wordplay like ShaadiKeSideEffects and PyaarDostiHai. Traditional words such as ShubhVivah, SaatPhere, AnandKaraj and Kalyanam also make beautiful tags." }
+    },
+    {
+      "@type": "Question",
+      "name": "When and how should we share our hashtag with guests?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Share it early on your invitation or wedding website, then repeat it at the venue on welcome signs, table cards and the photo booth, with a quick announcement by your emcee or DJ. Repetition is what turns a hashtag into a habit." }
+    }
+  ]
+}
+</script>
+
+<footer class="no-print border-t border-[#F0DCD6] bg-cream">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-display text-xl font-bold text-cocoa">Vow<span class="text-rosegold">Tag</span></p>
+    <p class="text-sm text-cocoa/60 text-center">Free wedding hashtag generator · made with love for couples everywhere</p>
+    <a href="https://fixoraa.tech" class="text-sm font-semibold text-rosegold hover:text-rosedeep">Explore more free tools →</a>
+  </div>
+</footer>
+
+</body>
+</html>
